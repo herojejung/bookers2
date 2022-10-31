@@ -1,2 +1,22 @@
-<h1>トップページです</h1>
+<main>
+   <h1>"welcome to Bookers !!"</h1>
+   <p>In Bookers,</p>
+   <p>you can share and exchange your opinions , inpressions , and emotions</p>
+   <p>about various books!</p>
+    <% if user_signed_in? %>
+    </h1>
+      <li>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "Sign up", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "Sign in", new_user_session_path %>
+      </li>
+    <% end %>
+    <%= yield %>
+</main>
+
 
