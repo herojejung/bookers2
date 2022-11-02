@@ -11,6 +11,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
+    @user = current_user
   end
 
   def show
@@ -22,6 +23,6 @@ class BooksController < ApplicationController
   private
   # ストロングパラメータ
   def book_params
-    params.require(:book).permit(:title, :body, :image)
+    params.require(:book).permit(:title, :body)
   end
 end

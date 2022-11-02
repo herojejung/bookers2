@@ -1,14 +1,15 @@
 <h1>User info</h1>
-<% @books.each do |book| %>
-<%= image_tag list.image, size: "200x200" %>
+<%= image_tag @user.get_image %>
 <table>
   <tbody>
     <tr>
       <th>name</th>
+      <%= @user.name %>
       <th></th>
     </tr>
     <tr>
       <th>introduction</th>
+      <%= @user.introduction %>
       <th></th>
     </tr>
   </tbody>
@@ -17,7 +18,6 @@
 <li>
   <%= link_to "user_info", edit_user_registration_path %>
 </li>
-<% end %>
 
 <h2>New book</h2>
 <!-- form_with部分 -->
