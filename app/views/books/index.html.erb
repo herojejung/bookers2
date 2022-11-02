@@ -1,26 +1,27 @@
-<div class = "container3">
-<%= form_with model: @book.new do |f| %>
 <h1>User info</h1>
-
+<% @books.each do |book| %>
+<%= image_tag list.image, size: "200x200" %>
 <table>
-  <tr>
-    <th>name</th>
-    <th></th>
-  </tr>
-  <tr>
-    <th>introduction</th>
-  </tr>
-<tbody>
-<table>
+  <tbody>
+    <tr>
+      <th>name</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th></th>
+    </tr>
+  </tbody>
+</table>
 
+<li>
+  <%= link_to "user_info", edit_user_registration_path %>
+</li>
+<% end %>
 
-  <h4>Name</h4>
-
-  <h4>Introduction</h4>
-
-<h1>New book</h1>
+<h2>New book</h2>
 <!-- form_with部分 -->
-
+<%= form_with model: @books.new do |f| %>
   <h4>Title</h4>
   <%= f.text_field :title %>
 
@@ -29,4 +30,3 @@
 
   <%= f.submit 'Create Book' %>
 <% end %>
-</div>
