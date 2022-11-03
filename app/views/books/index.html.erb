@@ -17,41 +17,48 @@
       <th><%= link_to "user_info", edit_user_registration_path, class: "btn btn-secondary btn-default" %></th>
       </tr>
    </tbody>
-   </div>
-  </div>
-  </div>
 </table>
 
 <h2>New book</h2>
 <!-- form_with部分 -->
-<%= form_with model: @books.new do |f| %>
+<%= form_with model: @book do |f| %>
   <h6>Title</h6>
   <%= f.text_field :title %>
 
   <h6>Opinion</h6>
   <%= f.text_area :body %>
-  <div>
-    <h8><%= link_to 'Create Book', books_path, class: "btn btn-success btn-default" %></h8>
-  </div>
-<% end %>
 
-<h3>Books</h3>
+  <%= f.submit 'Create Book', class: "btn btn-success" %>
+<% end %>
+</div>
+    <!-- 以下を追加 -->
+  <div class="col-lg-8">
+    <h3>Books</h3>
 <table>
   <thead>
     <tr>
+      <th></th>
       <th>Title</th>
       <th>Opinipn</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
-    <% @user.each do |user| %>
+    <% @books.each do |books| %>
     <tr>
-      <td><%= image_tag @user.get_image(100,100) %></td>
-      <td><%= book.title %></td>
-      <td><%= book.body %></td>
+      <td>
+        <%= link_to book_path(books) %>
+        <%= image_tag @user.get_image %>
+      </td>
+      <td>
+        <%=link_to user_path(@user) %>
+        <%= books.title %>
+      </td>
+      <td><%= books.body %></td>
     </tr>
-  </tbody>
     <% end %>
   </tbody>
 </table>
+</div>
+</div>
+</div>
