@@ -25,15 +25,33 @@
 <h2>New book</h2>
 <!-- form_with部分 -->
 <%= form_with model: @books.new do |f| %>
-  <h4>Title</h4>
+  <h6>Title</h6>
   <%= f.text_field :title %>
 
-  <h4>Opinion</h4>
+  <h6>Opinion</h6>
   <%= f.text_area :body %>
-
   <div>
-    <h6><%= link_to 'Create Book', books_path, class: "btn btn-success btn-default" %></h6>
+    <h8><%= link_to 'Create Book', books_path, class: "btn btn-success btn-default" %></h8>
   </div>
-
-
 <% end %>
+
+<h3>Books</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Opinipn</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.each do |user| %>
+    <tr>
+      <td><%= image_tag @user.get_image(100,100) %></td>
+      <td><%= book.title %></td>
+      <td><%= book.body %></td>
+    </tr>
+  </tbody>
+    <% end %>
+  </tbody>
+</table>
