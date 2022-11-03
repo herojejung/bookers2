@@ -1,23 +1,26 @@
-<h1>User info</h1>
-<%= image_tag @user.get_image %>
-<table>
-  <tbody>
-    <tr>
-      <th>name</th>
-      <%= @user.name %>
-      <th></th>
-    </tr>
-    <tr>
+<div class="container">
+ <div class="row">
+  <div class="col-lg-4" style="background-color: white;">
+    <table class = "table table-striped">
+    <h1>User info</h1>
+      <%= image_tag @user.get_image %>
+    <tbody>
+      <tr class = "table bg-white">
+        <th>name</th>
+        <th><%= @user.name %></th>
+      </tr>
+      <tr class = "table bg-white">
       <th>introduction</th>
-      <%= @user.introduction %>
-      <th></th>
-    </tr>
-  </tbody>
+      <th><%= @user.introduction %></th>
+      </tr>
+      <tr class = "table bg-white">
+      <th><%= link_to "user_info", edit_user_registration_path, class: "btn btn-secondary btn-default" %></th>
+      </tr>
+   </tbody>
+   </div>
+  </div>
+  </div>
 </table>
-
-<li>
-  <%= link_to "user_info", edit_user_registration_path %>
-</li>
 
 <h2>New book</h2>
 <!-- form_with部分 -->
@@ -28,5 +31,9 @@
   <h4>Opinion</h4>
   <%= f.text_area :body %>
 
-  <%= f.submit 'Create Book' %>
+  <div>
+    <h6><%= link_to 'Create Book', books_path, class: "btn btn-success btn-default" %></h6>
+  </div>
+
+
 <% end %>
