@@ -1,64 +1,39 @@
-<div class="container">
+<main>
+<%= render 'book', books: @books %>
+<div class="container px-5 px-sm-0">
  <div class="row">
-  <div class="col-lg-4" style="background-color: white;">
-    <table class = "table table-striped">
-    <h1>User info</h1>
-      <%= image_tag @user.get_image %>
+  <div class="col-md-3">
+
+<div class="col-md-8 offset-md-1">
+  <h2>Books</h2>
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Opinipn</th>
+          <th></th>
+        </tr>
+      </thead>
     <tbody>
-      <tr class = "table bg-white">
-        <th>name</th>
-        <th><%= @user.name %></th>
-      </tr>
-      <tr class = "table bg-white">
-      <th>introduction</th>
-      <th><%= @user.introduction %></th>
-      </tr>
-      <tr class = "table bg-white">
-      <th><%= link_to "user_info", edit_user_registration_path, class: "btn btn-secondary btn-default" %></th>
-      </tr>
-   </tbody>
-</table>
-
-<h2>New book</h2>
-<!-- form_with部分 -->
-<%= form_with model: @book do |f| %>
-  <h6>Title</h6>
-  <%= f.text_field :title %>
-
-  <h6>Opinion</h6>
-  <%= f.text_area :body %>
-
-  <%= f.submit 'Create Book', class: "btn btn-success" %>
-<% end %>
-</div>
-    <!-- 以下を追加 -->
-  <div class="col-lg-8">
-    <h3>Books</h3>
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Opinipn</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @books.each do |books| %>
+  <% @books.each do |books| %>
     <tr>
       <td>
-        <%= link_to book_path(books) %>
+        <%= link_to book_path(books) do %>
         <%= image_tag @user.get_image %>
-      </td>
-      <td>
-        <%=link_to user_path(@user) %>
-        <%= books.title %>
-      </td>
+        </td>
+        <td>
+          <%=link_to user_path(books) do %>
+          <%= books.title %>
+        </td>
       <td><%= books.body %></td>
     </tr>
-    <% end %>
-  </tbody>
+  <% end %>
+  <% end %>
+  <% end %>
+</tbody>
 </table>
 </div>
 </div>
 </div>
+</main>
