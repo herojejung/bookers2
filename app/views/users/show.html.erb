@@ -1,0 +1,31 @@
+<%= render 'user', users: @users %>
+<div class="col-md-8 offset-md-1">
+  <h2>Books</h2>
+    <table class="table">
+     <thead>
+      <tr>
+       <th></th>
+        <th>Title</th>
+         <th>Opinipn</th>
+        <th></th>
+      </tr>
+    </thead>
+<tbody>
+   <tr>
+    <td>
+     <%= link_to user_path(@book) do %>
+      <%= image_tag @user.get_image %>
+       </td>
+        <td>
+         <%=link_to book_path(@book) do %>
+          <%= @book.title %>
+          </td>
+          <td><%= @book.body %></td>
+          <td>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+</tbody>
+</table>
+</div>
