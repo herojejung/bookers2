@@ -26,6 +26,10 @@ class BooksController < ApplicationController
     @book.destroy
     redirect_to books_path
   end
+  
+  def edit
+    @book = Book.find(params[:id])
+  end
 
   private
   # ストロングパラメータ

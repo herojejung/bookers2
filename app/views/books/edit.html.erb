@@ -1,16 +1,17 @@
-<h1>User info</h1>
+<h1>Editing Book</h1>
 
-<%= form_with model: @user, url:'/books' do |f| %>
+<%= form_with model: @book, url do |f| %>
 
-  <h4>Name</h4>
-  <%= f.text_field :name %>
-  
-  <h4>Image</h4>
-  <%= f.file_field :image, accept: "image/*" %>
-  
-  <h4>Introduction</h4>
-  <%= f.text_area :body %>
-  
-  <%= f.submit 'Update User' %>
-  
+  <label for="inputTitle">Title</label>
+  <%= f.text_field :title, autofocus: true, id:"inputTitle", placeholder:"Title"%>
+
+  <label for="inputOpinion">Opinion</label>
+  <%= f.text_field :body, autofocus: true, id:"inputOpinion", placeholder:"Opinion"%>
+
+  <%= f.submit 'Update Book', class: "btn btn-success" %>
+
+<%= link_to "Show" book_path %>
+"|"
+<%= link_to "Back" books_path %>
+
 <% end %>
