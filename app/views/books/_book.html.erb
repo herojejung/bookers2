@@ -1,7 +1,7 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
-    <h2>User info</h2>
+     <h2>User info</h2>
       <%= image_tag user.get_image %>
       <table class="table">
         <t-body>
@@ -27,7 +27,7 @@
 
 <h2>New book</h2>
 <!-- form_with部分 -->
-<%= form_with model: book do |f| %>
+<%= form_with model: Book.new do |f| %>
   <h6>Title</h6>
   <%= f.text_field :title %>
 

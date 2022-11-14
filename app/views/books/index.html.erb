@@ -1,16 +1,16 @@
 <%= render 'book', user: @user,book: @book %>
 
 <div class="col-md-8 offset-md-1">
-   <% if @book.errors.any? %>
-        <%= @book.errors.count %>件のエラーが発生しました
-        <ul>
-        <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  <h2>Books</h2>
-  </ul>
+  <% if @book.errors.any? %>
+    <%= @book.errors.count %>errors prohibited this obj from being saved:
+      <ul>
+      <% @book.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
 <% end %>
-    <table class="table table-hover table-inverse">
+  <h2>Books</h2>
+    </ul>
+      <table class="table table-hover table-inverse">
       <thead>
         <tr>
           <th></th>
