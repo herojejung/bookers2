@@ -8,6 +8,7 @@
         <% @book.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
+    </ul>
   <% end %>
 <%= form_with model: @book do |f| %>
   <label for="inputTitle">Title</label>

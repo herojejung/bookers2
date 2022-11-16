@@ -23,12 +23,12 @@
   <% @books.each do |books| %>
     <tr>
       <td>
-        <%= link_to book_path(books) do %>
+        <%= link_to user_path(books) do %>
         <%= image_tag @user.get_image %>
         <% end %>
         </td>
         <td>
-          <%=link_to user_path(books) do %>
+          <%=link_to book_path(books) do %>
           <%= books.title %>
           <% end %>
         </td>

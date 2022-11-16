@@ -6,6 +6,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :books, dependent: :destroy
 
+  validates :name, presence: true
+  validates :image, presence: true
+  validates :introduction, presence: true
+
   def get_image
   unless image.attached?
     file_path = Rails.root.join('app/assets/images/sample-author1.jpg')

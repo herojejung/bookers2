@@ -19,28 +19,34 @@ class BooksController < ApplicationController
     @user = current_user
   end
 
+  def show
+    @book = Book.find(params[:id])
+    @user = current_user
+  end
+
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
     redirect_to books_path
   end
 
-  def show
-    @book = Book.find(params[:id])
-    @user = current_user
-  end
-
   def edit
     @book = Book.find(params[:id])
+  if @book.user == current_user
+    render "books/edit"
+  else
+    redirect_to books_path
   end
+　end
 
   def update
     book = Book.find(params[:id])
   if book.update(book_params)
-    flash[:succsess] = "You have updated book successfully."
+    flash[:notice] = "You have updated book successfully."
     redirect_to book_path(book.id)
   else
-    @user = current_user
+    @book = Book.find(params[:id])
+    @book.update(book_params)
     render :'books/edit'
   end
   end
@@ -48,6 +54,7 @@ class BooksController < ApplicationController
   private
   # ストロングパラメータ
   def book_params
-    params.require(:book).permit(:title, :body)
+    params.require(:book).permit(:title, :body, :image)
+  end
   end
 end
