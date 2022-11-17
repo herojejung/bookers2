@@ -14,10 +14,12 @@
     <% flash.each do |key, value| %>
     <%= content_tag(:div, value, class: "#{key}") %>
   <% end %>
-  <header class="shadow-sm">
-    <nav class="navbar navbar-expand-lg navbar-light">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand p-3" href="/">Bookers</a>
+        <a class="navbar-brand" href="/">
+          Bookers
+          </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,29 +27,45 @@
         <ul class="navbar-nav ml-auto">
     <% if user_signed_in? %>
       <li class="nav-item">
-        <%= link_to "Home", user_path(current_user.id),class: 'nav-link text-black' %>
+        <%= link_to user_path(current_user.id),class: 'nav-link text-light' do %>
+        <p>Home<i class="fas fa-home icon"></i></p>
+        <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to "Users", users_path,class: 'nav-link text-black' %>
+        <%= link_to (users_path),class: 'nav-link text-light' do %>
+        <p>Users<i class="fas fa-users"></i></p>
+        <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to "Books", books_path,class: 'nav-link text-black' %>
+        <%= link_to (books_path),class: 'nav-link text-light' do %>
+        <P>Books<i class="fas fa-book-open"></i></P>
+        <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to "Log out", destroy_user_session_path, method: :delete,class: 'nav-link text-black' %>
+        <%= link_to (destroy_user_session_path) ,method: :delete,class: 'nav-link text-light' do %>
+        <p>Log out<i class="fas fa-sign-out-alt"></i></p>
+        <% end %>
       </li>
     <% else %>
       <li class="nav-item">
-        <%= link_to "Home", root_path,class: 'nav-link text-black' %>
+        <%= link_to (root_path),class: 'nav-link text-light' do %>
+        <p>Home<i class="fas fa-home icon"></i></p>
+        <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to "About", about_path,class: 'nav-link text-black' %>
+        <%= link_to (about_path),class: 'nav-link text-light' do %>
+        <p>About<i class="fas fa-link icon"></i></p>
+        <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to "Sign up", new_user_registration_path ,class: 'nav-link text-black' %>
+        <%= link_to (new_user_registration_path) ,class: 'nav-link text-light' do %>
+        <p>Sign-up<i class="fas fa-link icon" title = "Sign-up"></i></p>
+        <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to "Log in", new_user_session_path ,class: 'nav-link text-black' %>
+        <%= link_to (new_user_session_path) ,class: 'nav-link text-light' do %>
+        <p>Sign-in<i class="fas fa-sign-in-alt icon" title = "Sign-in"></i></p>
+        <% end %>
       </li>
     <% end %>
     </ul>
@@ -57,10 +75,12 @@
   </header>
   <%= yield %>
   <footer>
-    <div class= "container">
-      <div class= "container2">
+    <div class= "container mt-5">
+      <div class= "row">
+        <div class= "mx-auto">
         <p>CopyRight Infratop.inc</p>
       </div>
+    </div>
     </div>
   </footer>
 </body>
