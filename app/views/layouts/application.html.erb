@@ -28,43 +28,43 @@
     <% if user_signed_in? %>
       <li class="nav-item">
         <%= link_to user_path(current_user.id),class: 'nav-link text-light' do %>
-        <p>Home<i class="fas fa-home icon"></i></p>
+        <p><i class="fas fa-home icon"></i>Home</p>
         <% end %>
       </li>
       <li class="nav-item">
         <%= link_to (users_path),class: 'nav-link text-light' do %>
-        <p>Users<i class="fas fa-users"></i></p>
+        <p><i class="fas fa-users"></i>Users</p>
         <% end %>
       </li>
       <li class="nav-item">
         <%= link_to (books_path),class: 'nav-link text-light' do %>
-        <P>Books<i class="fas fa-book-open"></i></P>
+        <P><i class="fas fa-book-open"></i>Books</P>
         <% end %>
       </li>
       <li class="nav-item">
         <%= link_to (destroy_user_session_path) ,method: :delete,class: 'nav-link text-light' do %>
-        <p>Log out<i class="fas fa-sign-out-alt"></i></p>
+        <p><i class="fas fa-sign-out-alt"></i>Log out</p>
         <% end %>
       </li>
     <% else %>
       <li class="nav-item">
         <%= link_to (root_path),class: 'nav-link text-light' do %>
-        <p>Home<i class="fas fa-home icon"></i></p>
+        <p><i class="fas fa-home icon"></i>Home</p>
         <% end %>
       </li>
       <li class="nav-item">
         <%= link_to (about_path),class: 'nav-link text-light' do %>
-        <p>About<i class="fas fa-link icon"></i></p>
+        <p><i class="fas fa-link icon"></i>About</p>
         <% end %>
       </li>
       <li class="nav-item">
         <%= link_to (new_user_registration_path) ,class: 'nav-link text-light' do %>
-        <p>Sign-up<i class="fas fa-link icon" title = "Sign-up"></i></p>
+        <p><i class="fas fa-user-plus" title = "Sign-up"></i>Sign up</p>
         <% end %>
       </li>
       <li class="nav-item">
         <%= link_to (new_user_session_path) ,class: 'nav-link text-light' do %>
-        <p>Sign-in<i class="fas fa-sign-in-alt icon" title = "Sign-in"></i></p>
+        <p><i class="fas fa-sign-in-alt icon" title = "Sign-in"></i>Log in</p>
         <% end %>
       </li>
     <% end %>

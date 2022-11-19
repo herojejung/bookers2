@@ -15,8 +15,8 @@
    <% @books.each do |books| %>
     <tr>
       <td>
-        <%= link_to user_path(books) do %>
-        <%= image_tag @user.get_profile_image %>
+        <%= link_to user_path(@user) do %>
+        <%= image_tag @user.get_profile_image(100,100) %>
         <% end %>
         </td>
         <td>
@@ -29,4 +29,6 @@
   <% end %>
 </tbody>
 </table>
+</div>
+</div>
 </div>

@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  def new
-  end
+  before_action :correct_user, only: [:edit, :update]
 
   def create
     user = User.new(user_params)
@@ -17,7 +16,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @books = @user.books
-    @user = current_user
   end
 
   def edit
@@ -25,7 +23,8 @@ class UsersController < ApplicationController
   if @user == current_user
     render "users/edit"
   else
-    redirect_to users_path
+    @user = current_user
+    redirect_to user_path
   end
   end
 
@@ -44,7 +43,12 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:image,:name,:introduction)
+    params.require(:user).permit(:profile_image,:name,:introduction)
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(users_path) unless @user == current_user
   end
 
 end

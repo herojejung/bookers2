@@ -14,11 +14,11 @@
     <label for="inputName">Name</label>
       <p><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"Name"%></p>
         <label for="inputImage">Image</label>
-          <p><%= f.file_field :image, placeholder: "Image",accept: "image/*" %></p>
+          <p><%= f.file_field :profile_image, placeholder: "Image",accept: "image/*" %></p>
             <label for="inputOpinion">Introduction</label>
               <p><%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder:"Inputintroduction"%></p>
              <p>
-            <%= f.submit 'Update Book', class: "btn btn-secondary" %>
+            <%= f.submit 'Update User', class: "btn btn-secondary" %>
           </p>
         <% end %>
       </div>
